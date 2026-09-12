@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+<!-- ============================================================
+     SEO — Title, Description, Keywords
+     ============================================================ -->
+<title>dotcomAI Harness | AI Coding Assistant Platform</title>
+<meta name="description" content="dotcomAI Harness is an extensible AI coding assistant platform built for developers — fast, customizable, and designed for real dev workflows.">
+<meta name="keywords" content="dotcomAI, dotcom AI, AI Sri Lanka, artificial intelligence Sri Lanka, free AI, free AI tools, AI assistant, AI platform, LLM platform, AI chatbot, Sri Lankan AI platform, AI tools Sri Lanka, AI software Sri Lanka, Manuja Damsara, DotcomOne, UniPOS, harness, dotcomai harness, manuja damsara the developer, manuja the developer">
+<meta name="author" content="Manuja Damsara">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#00c853">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="dotcomAI Harness | AI Coding Assistant Platform">
+<meta property="og:description" content="dotcomAI Harness is an extensible AI coding assistant platform built for developers — fast, customizable, and designed for real dev workflows.">
+<meta property="og:site_name" content="dotcomAI">
+<meta property="og:image" content="https://i.ibb.co/m5nPTD1T/image-7.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="dotcomAI Harness | AI Coding Assistant Platform">
+<meta name="twitter:description" content="dotcomAI Harness is an extensible AI coding assistant platform built for developers — fast, customizable, and designed for real dev workflows.">
+<meta name="twitter:image" content="https://i.ibb.co/m5nPTD1T/image-7.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://i.ibb.co/m5nPTD1T/image-7.png">
+<link rel="apple-touch-icon" href="https://i.ibb.co/m5nPTD1T/image-7.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #00c853;
+    --green-soft: #00e676;
+    --green-dim: rgba(0, 200, 83, 0.12);
+    --green-line: rgba(0, 200, 83, 0.3);
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #e8eaed;
+    --text-dim: #9aa0a6;
+    --text-dimmer: #6b7280;
+    --nav-h: 56px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #000;
+    color: var(--text);
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.no-scroll { overflow: hidden; }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .hero-bg {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-color: #021a0c;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      rgba(0,0,0,0.10) 0%,
+      rgba(0,0,0,0.35) 40%,
+      rgba(0,0,0,0.80) 78%,
+      #000 100%);
+  }
+
+  .vignette {
+    position: fixed; inset: 0; z-index: 1;
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.75) 95%);
+    pointer-events: none;
+  }
+
+  .page-backdrop {
+    position: absolute; top: 100vh; left: 0; right: 0; bottom: 0; z-index: 2;
+    background: linear-gradient(180deg, #000 0%, #060606 15%, #0a0a0a 40%, #0a0a0a 100%);
+    pointer-events: none;
+  }
+
+  .bg-grid {
+    position: absolute; top: 100vh; left: 0; right: 0; bottom: 0; z-index: 2;
+    background-image:
+      linear-gradient(rgba(0, 200, 83, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 200, 83, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 20%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 20%);
+    pointer-events: none;
+  }
+
+  .page { position: relative; z-index: 10; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* NAV */
+  .nav-wrap { position: fixed; top: 16px; left: 0; right: 0; z-index: 200; padding: 0 32px; }
+  .nav-pill {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    background: rgba(12, 12, 12, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 10px 8px 18px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .nav-left { display: flex; align-items: center; gap: 20px; min-width: 0; }
+  .nav-left .badges { display: flex; align-items: center; gap: 8px; }
+
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 1.05rem;
+    color: #fff; text-decoration: none;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+  .brand:hover { opacity: 0.85; }
+  .brand-logo {
+    width: 28px; height: 28px;
+    object-fit: contain; display: block;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.15));
+  }
+  .brand-text {
+    font-weight: 700; letter-spacing: -0.01em;
+    color: #ffffff; line-height: 1;
+  }
+
+  .nav-tag {
+    font-size: 0.72rem; font-weight: 600;
+    padding: 4px 10px; border-radius: 100px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  .nav-tag.green { background: var(--green-dim); border-color: var(--green-line); color: var(--green-soft); }
+
+  .nav-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+
+  .top-menu {
+    display: flex; align-items: center; gap: 2px;
+    padding-right: 10px;
+    margin-right: 4px;
+    border-right: 1px solid var(--border);
+  }
+  .top-menu > a,
+  .top-menu .dropdown-toggle {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 100px;
+    transition: all 0.2s;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .top-menu > a:hover,
+  .top-menu .dropdown-toggle:hover,
+  .top-menu .dropdown-toggle.open {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .dropdown { position: relative; }
+  .dropdown-toggle .fa-chevron-down {
+    font-size: 0.6rem;
+    transition: transform 0.25s;
+    color: var(--text-dimmer);
+  }
+  .dropdown-toggle.open .fa-chevron-down { transform: rotate(180deg); }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 240px;
+    background: rgba(15, 15, 15, 0.98);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 6px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,200,83,0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    z-index: 300;
+  }
+  .dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .dropdown-menu button {
+    display: flex; align-items: center; gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.87rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .dropdown-menu button:hover {
+    background: var(--green-dim);
+    color: var(--green-soft);
+  }
+  .dropdown-menu button i {
+    width: 16px;
+    color: var(--text-dimmer);
+    font-size: 0.85rem;
+    transition: color 0.15s;
+  }
+  .dropdown-menu button:hover i { color: var(--green); }
+
+  .hamburger {
+    display: none;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .hamburger:hover { background: rgba(255,255,255,0.1); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: calc(16px + var(--nav-h) + 8px);
+    left: 16px;
+    right: 16px;
+    background: rgba(12, 12, 12, 0.98);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+    z-index: 190;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+  }
+  .mobile-menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .mobile-menu a,
+  .mobile-menu button {
+    display: flex; align-items: center; gap: 12px;
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .mobile-menu a:hover,
+  .mobile-menu button:hover {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+  }
+  .mobile-menu .divider { height: 1px; background: var(--border); margin: 8px 4px; }
+  .mobile-menu .sub { padding-left: 20px; font-size: 0.88rem; }
+  .mobile-menu .sub i { width: 14px; }
+  .mobile-menu .label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dimmer);
+    padding: 10px 16px 4px;
+    font-weight: 700;
+  }
+
+  .gh-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border-radius: 100px;
+    background: #fff; color: #000;
+    font-size: 0.82rem; font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+    border: none; cursor: pointer;
+    white-space: nowrap;
+  }
+  .gh-btn:hover { transform: translateY(-1px); background: #e8e8e8; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 0 80px;
+    position: relative;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 1fr;
+    gap: 60px; align-items: center; width: 100%;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.25);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 700; letter-spacing: -0.035em; line-height: 1.05;
+    margin-bottom: 26px; color: #fff;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.7), 0 0 60px rgba(0,200,83,0.25);
+  }
+  .hero p {
+    color: #cdd2d8; font-size: 1.02rem; line-height: 1.7;
+    max-width: 540px; margin-bottom: 14px;
+    text-shadow: 0 1px 20px rgba(0,0,0,0.8);
+  }
+  .hero-actions {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    max-width: 480px; margin-top: 34px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px; padding: 12px 20px; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 600; text-decoration: none;
+    cursor: pointer; border: 1px solid var(--border); transition: all 0.25s ease;
+    font-family: inherit;
+  }
+  .btn-white { background: #fff; color: #000; border-color: #fff; }
+  .btn-white:hover { background: #e8e8e8; transform: translateY(-1px); box-shadow: 0 0 30px rgba(0,230,118,0.3); }
+  .btn-ghost { background: rgba(0,0,0,0.5); color: #fff; backdrop-filter: blur(8px); }
+  .btn-ghost:hover { border-color: var(--green-line); color: var(--green-soft); background: var(--green-dim); transform: translateY(-1px); }
+
+  .code-window {
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 60px rgba(0,200,83,0.08);
+    backdrop-filter: blur(12px);
+  }
+  .code-tabs {
+    display: flex; align-items: center; gap: 4px;
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.015);
+    overflow-x: auto;
+  }
+  .code-tab {
+    font-size: 0.8rem; font-weight: 500; padding: 6px 14px;
+    border-radius: 8px; color: var(--text-dim); cursor: pointer;
+    background: none; border: none; font-family: inherit;
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .code-tab.active { background: rgba(255, 255, 255, 0.07); color: #fff; }
+  .code-body {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 24px 20px; background: rgba(6, 6, 6, 0.9);
+    overflow-x: auto;
+  }
+  .code-cmd {
+    font-size: 0.92rem; color: var(--text); letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .code-cmd .prompt { color: var(--green); margin-right: 8px; }
+  .copy-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.76rem; color: var(--text-dimmer);
+    background: transparent; border: 1px solid var(--border);
+    padding: 6px 12px; border-radius: 8px; cursor: pointer;
+    transition: all 0.2s; flex-shrink: 0;
+    font-family: inherit;
+  }
+  .copy-btn:hover { color: var(--green-soft); border-color: var(--green-line); }
+
+  .formula-section { padding: 60px 0 100px; text-align: center; position: relative; }
+  .formula-chip {
+    display: inline-block; font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.08em; padding: 7px 16px; border-radius: 100px;
+    border: 1px solid var(--border); background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim); margin-bottom: 32px; font-family: 'JetBrains Mono', monospace;
+    backdrop-filter: blur(8px);
+  }
+  .harness-word {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700;
+    font-size: clamp(1.7rem, 6vw, 3.6rem);
+    letter-spacing: 0.14em; color: var(--green);
+    text-shadow: 0 0 40px rgba(0, 200, 83, 0.45), 0 0 80px rgba(0, 200, 83, 0.2);
+    margin-bottom: 16px;
+    word-break: break-word;
+  }
+  .formula-h2 {
+    font-size: clamp(1.3rem, 4vw, 2.6rem); font-weight: 700;
+    letter-spacing: -0.025em; line-height: 1.2;
+    max-width: 720px; margin: 0 auto 28px; color: #fff;
+  }
+  .formula-sub {
+    color: var(--text-dim); font-size: 0.98rem;
+    max-width: 640px; margin: 0 auto; line-height: 1.75;
+  }
+
+  .cards-3 {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 18px; padding: 40px 0 100px;
+  }
+  .fcard {
+    background: rgba(10,10,10,0.7);
+    border: 1px solid var(--border); border-radius: 16px;
+    padding: 40px 26px 36px; text-align: center;
+    transition: all 0.35s ease;
+    backdrop-filter: blur(12px);
+  }
+  .fcard:hover {
+    border-color: var(--green-line); transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(0,200,83,0.12);
+  }
+  .fcard-icon {
+    width: 54px; height: 54px; margin: 0 auto 22px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: #cfd4da; transition: all 0.35s;
+  }
+  .fcard:hover .fcard-icon { color: var(--green); text-shadow: 0 0 20px rgba(0,200,83,0.5); }
+  .fcard h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 12px; color: #fff; }
+  .fcard p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.65; }
+
+  .section-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; padding: 6px 14px; border-radius: 100px;
+    border: 1px solid var(--border); background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim); margin-bottom: 26px;
+    font-family: 'JetBrains Mono', monospace;
+    backdrop-filter: blur(8px);
+  }
+  .section-h2 {
+    font-size: clamp(1.6rem, 4vw, 3rem); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.15;
+    color: #fff; margin-bottom: 70px; max-width: 700px;
+  }
+  .feature-row {
+    display: grid; grid-template-columns: 1fr 1.1fr;
+    gap: 70px; align-items: center; padding: 60px 0;
+  }
+  .feature-row.reverse { grid-template-columns: 1.1fr 1fr; }
+  .feature-row.reverse .feature-text { order: 2; }
+  .feature-row.reverse .feature-visual { order: 1; }
+  .feature-title {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 1.35rem; font-weight: 700; margin-bottom: 18px; color: #fff;
+  }
+  .feature-title i { color: var(--green); font-size: 1.15rem; }
+  .feature-text p { color: var(--text-dim); font-size: 0.96rem; line-height: 1.8; }
+  .feature-text p strong { color: #fff; font-weight: 600; }
+
+  .mock {
+    background: rgba(10,10,10,0.85); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6); font-size: 0.78rem;
+    backdrop-filter: blur(12px);
+  }
+  .mock-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+  .mock-title { margin-left: 8px; font-size: 0.78rem; color: var(--text-dim); font-weight: 500; }
+  .mock-body { padding: 18px; }
+  .mock-sidebar { display: grid; grid-template-columns: 130px 1fr; min-height: 260px; }
+  .mock-side { border-right: 1px solid var(--border); padding: 14px 10px; background: rgba(255,255,255,0.01); }
+  .mock-side-item { font-size: 0.76rem; padding: 7px 10px; border-radius: 6px; color: var(--text-dim); margin-bottom: 2px; }
+  .mock-side-item.active { background: var(--green-dim); color: var(--green-soft); font-weight: 600; }
+  .mock-main { padding: 16px; min-width: 0; }
+  .mock-search {
+    font-size: 0.76rem; padding: 8px 12px; border-radius: 8px;
+    border: 1px solid var(--border); color: var(--text-dimmer);
+    margin-bottom: 14px; background: rgba(255,255,255,0.02);
+  }
+  .mock-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border);
+    margin-bottom: 8px; background: rgba(255,255,255,0.015);
+    gap: 8px;
+  }
+  .mock-row .name { font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; color: #d5d9de; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mock-row .status { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: var(--green-soft); flex-shrink: 0; }
+  .mock-row .status .led { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
+  .mock-row .status.off { color: var(--text-dimmer); }
+  .mock-row .status.off .led { background: #444; box-shadow: none; }
+
+  .traj-row {
+    display: grid; grid-template-columns: 70px 1fr; gap: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .traj-label { color: var(--text-dimmer); }
+  .traj-value { color: #b8bdc4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .traj-value.hl { color: var(--green-soft); }
+
+  .mode-item {
+    padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border);
+    margin-bottom: 8px; background: rgba(255,255,255,0.015);
+  }
+  .mode-item.active { border-color: var(--green-line); background: var(--green-dim); }
+  .mode-item h4 {
+    font-size: 0.84rem; font-weight: 700; color: #fff;
+    margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .mode-item.active h4 i { color: var(--green); font-size: 0.8rem; }
+  .mode-item p { font-size: 0.74rem; color: var(--text-dim); line-height: 1.5; }
+
+  .get-started { padding: 100px 0 90px; }
+  .gs-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 50px; }
+  .gs-card {
+    background: rgba(10,10,10,0.75); border: 1px solid var(--border);
+    border-radius: 16px; padding: 30px; backdrop-filter: blur(12px);
+    transition: all 0.3s; min-width: 0;
+  }
+  .gs-card:hover { border-color: var(--green-line); }
+  .gs-card h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .gs-card > p { font-size: 0.88rem; color: var(--text-dim); margin-bottom: 20px; line-height: 1.6; }
+  .gs-cmd {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; background: rgba(6, 6, 6, 0.9); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px;
+    overflow-x: auto;
+  }
+  .gs-cmd code {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+    color: #d5d9de; white-space: nowrap;
+  }
+  .gs-cmd code .p { color: var(--green); margin-right: 6px; }
+
+  .eco-cta { padding: 110px 0 120px; text-align: center; }
+  .eco-cta h2 {
+    font-size: clamp(1.6rem, 4.2vw, 3rem); font-weight: 700;
+    letter-spacing: -0.03em; color: #fff; margin-bottom: 24px;
+  }
+  .eco-cta p {
+    color: var(--text-dim); font-size: 1rem; line-height: 1.8;
+    max-width: 720px; margin: 0 auto 36px;
+  }
+  .eco-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 0 40px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+  }
+  .footer-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+    font-size: 0.82rem; color: var(--text-dimmer);
+  }
+  .footer-left { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .footer-left a {
+    color: var(--text-dimmer); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 7px;
+    transition: color 0.2s;
+  }
+  .footer-left a:hover { color: var(--green-soft); }
+
+  /* NEW: Footer policy menu with bullet separator */
+  .footer-policies {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    align-items: center;
+    color: var(--text-dimmer);
+  }
+  .footer-policies button {
+    color: var(--text-dimmer);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+  }
+  .footer-policies button:hover { color: var(--green-soft); }
+  .footer-policies .dot-sep { color: var(--text-dimmer); user-select: none; }
+
+  .footer-copy { color: var(--text-dimmer); }
+
+  /* REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* MODAL */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+  }
+  .modal-backdrop.open { opacity: 1; visibility: visible; }
+
+  .modal {
+    background: #0d0d0d;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 780px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 0 1px rgba(0,200,83,0.1);
+    transform: scale(0.96);
+    transition: transform 0.25s;
+    overflow: hidden;
+  }
+  .modal-backdrop.open .modal { transform: scale(1); }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.015);
+    flex-shrink: 0;
+  }
+  .modal-header h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .modal-header h2 i { color: var(--green); font-size: 1rem; }
+
+  .modal-close {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .modal-close:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-color: var(--green-line);
+  }
+
+  .modal-body {
+    padding: 24px 28px 32px;
+    overflow-y: auto;
+    color: var(--text-dim);
+    font-size: 0.94rem;
+    line-height: 1.75;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,200,83,0.3) transparent;
+  }
+  .modal-body::-webkit-scrollbar { width: 8px; }
+  .modal-body::-webkit-scrollbar-track { background: transparent; }
+  .modal-body::-webkit-scrollbar-thumb {
+    background: rgba(0,200,83,0.25);
+    border-radius: 4px;
+  }
+  .modal-body::-webkit-scrollbar-thumb:hover { background: rgba(0,200,83,0.45); }
+
+  .modal-body h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .modal-body .updated {
+    font-size: 0.78rem;
+    color: var(--text-dimmer);
+    margin-bottom: 22px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .modal-body h2 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 26px 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .modal-body h3 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 18px 0 6px;
+  }
+  .modal-body p { margin-bottom: 12px; }
+  .modal-body ul { margin: 6px 0 14px 22px; }
+  .modal-body li { margin-bottom: 6px; }
+  .modal-body strong { color: #fff; font-weight: 600; }
+  .modal-body em { color: #b8bdc4; }
+  .modal-body a { color: var(--green-soft); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1080px) {
+    .top-menu { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: block; }
+  }
+
+  @media (max-width: 960px) {
+    .hero { padding: 100px 0 60px; min-height: auto; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .cards-3 { grid-template-columns: 1fr; }
+    .feature-row, .feature-row.reverse { grid-template-columns: 1fr; gap: 32px; }
+    .feature-row.reverse .feature-text { order: 1; }
+    .feature-row.reverse .feature-visual { order: 2; }
+    .gs-cards { grid-template-columns: 1fr; }
+    .hero-actions { grid-template-columns: 1fr 1fr; }
+    .section-h2 { margin-bottom: 40px; }
+  }
+
+  @media (max-width: 640px) {
+    .container, .nav-wrap { padding: 0 16px; }
+    .nav-wrap { top: 10px; }
+    .nav-pill { padding: 6px 8px 6px 14px; }
+    .nav-left { gap: 12px; }
+    .badges { display: none; }
+    .brand { font-size: 0.98rem; }
+    .brand-logo { width: 24px; height: 24px; }
+    .gh-btn { padding: 6px 10px; font-size: 0.78rem; }
+    .gh-btn span { display: none; }
+    .hero { padding: 90px 0 40px; }
+    .hero-actions { grid-template-columns: 1fr; max-width: 100%; }
+    .modal-backdrop { padding: 12px; }
+    .modal-header { padding: 16px 18px; }
+    .modal-body { padding: 18px 20px 24px; font-size: 0.9rem; }
+    .modal-body h1 { font-size: 1.25rem; }
+    .modal-body h2 { font-size: 0.95rem; }
+    .footer-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer-policies { gap: 6px; }
+  }
+
+  @media (max-width: 420px) {
+    .brand-text { font-size: 0.92rem; }
+    .section-h2 { font-size: 1.4rem; }
+    .formula-h2 { font-size: 1.2rem; }
+    .fcard { padding: 30px 20px 26px; }
+    .gs-card { padding: 22px 18px; }
+    .modal-header h2 { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero-bg"></div>
+<div class="vignette"></div>
+
+<div class="page">
+
+  <!-- NAV -->
+  <div class="nav-wrap">
+    <div class="nav-pill">
+      <div class="nav-left">
+        <a href="https://home.dotcomai.site" class="brand" aria-label="dotcomAI home">
+          <img src="logo.png" alt="dotcomAI" class="brand-logo" onerror="this.style.display='none'">
+          <span class="brand-text">dotcomAI</span>
+        </a>
+        <div class="badges">
+          <span class="nav-tag">Harness</span>
+          <span class="nav-tag green">Developer preview</span>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <nav class="top-menu" aria-label="Primary">
+          <!-- Home → external -->
+          <a href="https://home.dotcomai.site">Home</a>
+          <!-- Chat → external -->
+          <a href="https://dotcomai.site">Chat</a>
+
+          <div class="dropdown">
+            <button class="dropdown-toggle" id="helpToggle" aria-haspopup="true" aria-expanded="false">
+              Help <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu" id="helpMenu" role="menu">
+              <button type="button" role="menuitem" onclick="openModal('privacy')">
+                <i class="fas fa-shield-halved"></i> Privacy Policy
+              </button>
+              <button type="button" role="menuitem" onclick="openModal('terms')">
+                <i class="fas fa-file-contract"></i> Terms of Use
+              </button>
+              <button type="button" role="menuitem" onclick="openModal('about')">
+                <i class="fas fa-circle-info"></i> About dotcomAI
+              </button>
+            </div>
+          </div>
+
+          <a href="#about">About</a>
+        </nav>
+
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <a href="https://github.com/dotcomai/dotcomai-harness" target="_blank" rel="noopener" class="gh-btn">
+          <i class="fab fa-github"></i> <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="https://home.dotcomai.site"><i class="fas fa-house" style="width:16px"></i> Home</a>
+    <a href="https://dotcomai.site"><i class="fas fa-comments" style="width:16px"></i> Chat</a>
+    <div class="divider"></div>
+    <div class="label">Help</div>
+    <button type="button" class="sub" onclick="openModal('privacy'); closeMobile();">
+      <i class="fas fa-shield-halved"></i> Privacy Policy
+    </button>
+    <button type="button" class="sub" onclick="openModal('terms'); closeMobile();">
+      <i class="fas fa-file-contract"></i> Terms of Use
+    </button>
+    <button type="button" class="sub" onclick="openModal('about'); closeMobile();">
+      <i class="fas fa-circle-info"></i> About dotcomAI
+    </button>
+    <div class="divider"></div>
+    <a href="#about" onclick="closeMobile()"><i class="fas fa-circle-info" style="width:16px"></i> About</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">dotcomAI Harness developer preview</div>
+          <h1>Everything is a plugin</h1>
+          <p>dotcomAI Harness is now in developer preview for agent harness developers worldwide — source code included.</p>
+          <p>Every capability is a plugin that can be swapped or recomposed: models, tools, skills, sessions, sandboxes, storage, loops, scheduling, and the UI.</p>
+          <div class="hero-actions">
+            <a href="https://github.com/dotcomai/dotcomai-harness" target="_blank" rel="noopener" class="btn btn-white">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+            <a href="#get-started" class="btn btn-ghost"><i class="fas fa-book"></i> Developer docs</a>
+            <a href="#design" class="btn btn-ghost"><i class="fas fa-cubes"></i> Community plugins</a>
+            <a href="#formula" class="btn btn-ghost"><i class="fas fa-file-lines"></i> Cordis paper</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="code-window">
+            <div class="code-tabs">
+              <button class="code-tab active" data-target="cmd-npx">Quick start</button>
+              <button class="code-tab" data-target="cmd-git">Install from source</button>
+            </div>
+            <div class="code-body">
+              <div class="code-cmd mono" id="cmd-npx"><span class="prompt">$</span>npx @dotcomai/dsh web</div>
+              <div class="code-cmd mono" id="cmd-git" style="display:none;"><span class="prompt">$</span>git clone https://github.com/dotcomai/dotcomai-harness</div>
+              <button class="copy-btn" onclick="copyActive(this)">
+                <i class="far fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="position: relative;">
+    <div class="page-backdrop"></div>
+    <div class="bg-grid"></div>
+
+    <section class="formula-section" id="formula" style="position: relative; z-index: 5;">
+      <div class="container reveal">
+        <div class="formula-chip">AGENT = MODEL + HARNESS</div>
+        <div class="harness-word">HARNESS</div>
+        <h2 class="formula-h2">keeps agents working in real-world environments</h2>
+        <p class="formula-sub">
+          The model is the soul of an agent.<br>
+          A harness lets an agent understand its environment, use tools, and keep working in real-world settings.
+        </p>
+      </div>
+    </section>
+
+    <section class="container" id="design" style="position: relative; z-index: 5;">
+      <div class="cards-3">
+        <div class="fcard reveal">
+          <div class="fcard-icon"><i class="fas fa-atom"></i></div>
+          <h3>Cordis kernel</h3>
+          <p>The Cordis kernel manages plugin mounting, unmounting, and dependencies. Agent capabilities live in the plugins.</p>
+        </div>
+        <div class="fcard reveal">
+          <div class="fcard-icon"><i class="fas fa-circle-nodes"></i></div>
+          <h3>Capabilities as plugins</h3>
+          <p>Plugins provide every agent capability, including models, tools, skills, sessions, sandboxes, storage, loops, scheduling, and the UI.</p>
+        </div>
+        <div class="fcard reveal">
+          <div class="fcard-icon"><i class="fas fa-table-cells-large"></i></div>
+          <h3>Compose with configuration</h3>
+          <p>Developers can select, swap, or extend any capability in configuration without changing the dotcomAI Harness source code.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="chat" style="position: relative; z-index: 5;">
+      <div class="reveal">
+        <span class="section-tag">DESIGN APPROACH</span>
+        <h2 class="section-h2">Everything is a plugin.<br>Every run is traceable.</h2>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-text reveal">
+          <div class="feature-title"><i class="fas fa-cube"></i> Everything is a plugin</div>
+          <p>dotcomAI Harness is built on <strong>Cordis</strong>'s plugin system. Plugins provide every agent capability, including models, tools, skills, sessions, sandboxes, storage, loops, scheduling, and the UI. Cordis services and events let the plugins work together. Developers can select, swap, or extend any capability in configuration without changing the dotcomAI Harness source code.</p>
+        </div>
+        <div class="feature-visual reveal">
+          <div class="mock">
+            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mock-title">Settings · Plugins</span></div>
+            <div class="mock-sidebar">
+              <div class="mock-side">
+                <div class="mock-side-item">General</div>
+                <div class="mock-side-item">Models</div>
+                <div class="mock-side-item active">Plugins</div>
+                <div class="mock-side-item">Agent presets</div>
+              </div>
+              <div class="mock-main">
+                <div class="mock-search">Search plugins</div>
+                <div class="mock-row"><span class="name">include</span><span class="status"><span class="led"></span>Enabled</span></div>
+                <div class="mock-row"><span class="name">timer</span><span class="status"><span class="led"></span>Enabled</span></div>
+                <div class="mock-row"><span class="name">hmr</span><span class="status off"><span class="led"></span>Disabled</span></div>
+                <div class="mock-row"><span class="name">llm</span><span class="status"><span class="led"></span>Enabled</span></div>
+                <div class="mock-row"><span class="name">session</span><span class="status"><span class="led"></span>Enabled</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-text reveal">
+          <div class="feature-title"><i class="fas fa-circle-play"></i> Every run is traceable</div>
+          <p>Everything the model sees is recorded in an append-only session log: system prompts, reasoning, tool calls and results, subagent scheduling, and every context injection. In the Trajectory view, you can inspect these records by source. Resume, fork, search, and replay all operate on the same event stream.</p>
+        </div>
+        <div class="feature-visual reveal">
+          <div class="mock">
+            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mock-title">Session · Trajectory</span></div>
+            <div class="mock-body">
+              <div class="traj-row"><span class="traj-label">SYSTEM</span><span class="traj-value">Build yourself a tool that you would like to run</span></div>
+              <div class="traj-row"><span class="traj-label">CONTEXT</span><span class="traj-value hl">current worktree / config / environment</span></div>
+              <div class="traj-row"><span class="traj-label">USER</span><span class="traj-value">bash -c "pwd &amp;&amp; ls -la"</span></div>
+              <div class="traj-row"><span class="traj-label">TOOL</span><span class="traj-value hl">bash → /home/user/workspace</span></div>
+              <div class="traj-row"><span class="traj-label">RESULT</span><span class="traj-value">total 42 · 8 files · branch main</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-text reveal">
+          <div class="feature-title"><i class="fas fa-table-cells-large"></i> Multiple runtime modes</div>
+          <p>Standard mode includes the full toolset. Code mode uses model-generated code to orchestrate multiple rounds of tool calls. Minimal mode keeps only a shell tool and a file editor for benchmarking models in a minimal environment. Creator mode lets you inspect the current runtime, test Cordis plugins in memory, and combine them into new modes.</p>
+        </div>
+        <div class="feature-visual reveal">
+          <div class="mock">
+            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mock-title">dsh-demo · Runtime mode</span></div>
+            <div class="mock-body">
+              <div class="mode-item"><h4>Standard mode</h4><p>Full coding agent with file editing, shell, file and web search, skills, planning, goals, subagents, and workflows.</p></div>
+              <div class="mode-item"><h4>Code mode</h4><p>All Standard mode capabilities, with tools exposed through the Code Mode SDK so the model can combine multi-step operations in one TypeScript program.</p></div>
+              <div class="mode-item"><h4>Minimal mode</h4><p>Two-tool coding agent with persistent bash and str_replace_editor.</p></div>
+              <div class="mode-item active"><h4>Creator mode <i class="fas fa-check"></i></h4><p>Built for creating custom agent presets, with all Standard mode capabilities plus runtime inspection, plugin experiments, and preset-authoring guidance.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="get-started" id="get-started" style="position: relative; z-index: 5;">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-tag">GET STARTED</span>
+          <h2 class="section-h2" style="margin-bottom:0;">Try it now or install from source</h2>
+        </div>
+        <div class="gs-cards">
+          <div class="gs-card reveal">
+            <h3>Quick start</h3>
+            <p>Install Node.js, then launch the Web UI with npx.</p>
+            <div class="gs-cmd">
+              <code><span class="p">$</span>npx @dotcomai/dsh web</code>
+              <button class="copy-btn" onclick="copyText('npx @dotcomai/dsh web', this)"><i class="far fa-copy"></i> Copy</button>
+            </div>
+          </div>
+          <div class="gs-card reveal">
+            <h3>Install from source</h3>
+            <p>Clone the full source and follow the setup instructions in the repository.</p>
+            <div class="gs-cmd">
+              <code><span class="p">$</span>git clone https://github.com/dotcomai/dotcomai-harness</code>
+              <button class="copy-btn" onclick="copyText('git clone https://github.com/dotcomai/dotcomai-harness', this)"><i class="far fa-copy"></i> Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eco-cta" id="help" style="position: relative; z-index: 5;">
+      <div class="container reveal">
+        <h2>Join the DSH plugin ecosystem</h2>
+        <p>dotcomAI Harness remains in developer preview and is still being tested by developers building agent harnesses. Its core plugins and APIs will continue to evolve. We look forward to exploring the limits of intelligence with developers worldwide using open-source infrastructure that is reusable and composable.</p>
+        <div class="eco-actions">
+          <a href="https://github.com/dotcomai/dotcomai-harness" target="_blank" rel="noopener" class="btn btn-white">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+          <a href="#get-started" class="btn btn-ghost"><i class="fas fa-book"></i> Developer docs</a>
+          <a href="#design" class="btn btn-ghost"><i class="fas fa-cubes"></i> Community plugins</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="about" style="position: relative; z-index: 5;">
+      <div class="container footer-row">
+        <div class="footer-left">
+          <a href="https://wa.me/" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+
+        <!-- New footer policies with bullet separator -->
+        <nav class="footer-policies" aria-label="Policies">
+          <button type="button" onclick="openModal('safeuse')">Safe Use Policy</button>
+          <span class="dot-sep">·</span>
+          <button type="button" onclick="openModal('dataprocessing')">Data Processing Statement</button>
+        </nav>
+
+        <span class="footer-copy">© 2026 dotcomAI. All rights reserved.</span>
+      </div>
+    </footer>
+  </div>
+
+</div>
+
+<!-- ============================================================
+     MODALS
+     ============================================================ -->
+
+<!-- PRIVACY POLICY -->
+<div class="modal-backdrop" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-privacy-title"><i class="fas fa-shield-halved"></i> Privacy Policy</h2>
+      <button class="modal-close" onclick="closeModal('privacy')" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last Updated: August 29, 2026</p>
+
+      <p>This Privacy Policy explains how dotcomAI, operated under DotcomOne / UniPOS and developed by Manuja Damsara, collects, uses, processes, stores, and protects information when you use our website, applications, and AI services.</p>
+      <p>dotcomAI is developed and operated from Sri Lanka.</p>
+      <p>We respect your privacy and aim to handle personal information responsibly and transparently.</p>
+
+      <h2>1. Information We May Collect</h2>
+      <p>Depending on how you use dotcomAI, we may collect or receive different types of information.</p>
+
+      <h3>Account Information</h3>
+      <p>If you create an account, we may collect information such as:</p>
+      <ul>
+        <li>Name;</li>
+        <li>Email address;</li>
+        <li>Username;</li>
+        <li>Account identifiers;</li>
+        <li>Authentication information;</li>
+        <li>Profile information you choose to provide.</li>
+      </ul>
+
+      <h3>AI Prompts and Inputs</h3>
+      <p>When you use an AI feature, you may provide information such as:</p>
+      <ul>
+        <li>Text prompts;</li>
+        <li>Questions;</li>
+        <li>Instructions;</li>
+        <li>Uploaded documents;</li>
+        <li>Images;</li>
+        <li>Code;</li>
+        <li>Other content submitted to the Service.</li>
+      </ul>
+      <p>The information contained in your prompts may potentially include personal information.</p>
+      <p>You are responsible for avoiding the submission of sensitive or confidential information unless it is necessary and you understand how it may be processed.</p>
+
+      <h3>Technical Information</h3>
+      <p>We may automatically receive certain technical information, such as:</p>
+      <ul>
+        <li>IP address;</li>
+        <li>Browser type;</li>
+        <li>Device type;</li>
+        <li>Operating system;</li>
+        <li>Approximate location derived from technical information;</li>
+        <li>Access times;</li>
+        <li>Pages or features accessed;</li>
+        <li>Error logs;</li>
+        <li>Usage information.</li>
+      </ul>
+
+      <h3>Cookies and Similar Technologies</h3>
+      <p>We may use cookies, local storage, session technologies, or similar technologies to:</p>
+      <ul>
+        <li>Maintain sessions;</li>
+        <li>Remember preferences;</li>
+        <li>Improve functionality;</li>
+        <li>Understand service usage;</li>
+        <li>Improve security;</li>
+        <li>Analyze website performance.</li>
+      </ul>
+      <p>You may be able to control cookies through your browser settings.</p>
+
+      <h2>2. How We Use Information</h2>
+      <p>We may use information to:</p>
+      <ul>
+        <li>Provide and operate dotcomAI;</li>
+        <li>Process AI requests;</li>
+        <li>Authenticate users;</li>
+        <li>Maintain accounts;</li>
+        <li>Provide customer support;</li>
+        <li>Improve platform performance;</li>
+        <li>Monitor system security;</li>
+        <li>Detect abuse and fraudulent activity;</li>
+        <li>Enforce our Terms;</li>
+        <li>Troubleshoot technical problems;</li>
+        <li>Communicate important service information;</li>
+        <li>Understand how users interact with the platform;</li>
+        <li>Improve our products and services;</li>
+        <li>Comply with applicable legal obligations.</li>
+      </ul>
+
+      <h2>3. Processing of AI Prompts</h2>
+      <p>When you submit a prompt or other content to an AI feature, the content may be transmitted to the third-party AI or infrastructure provider required to process your request.</p>
+      <p>For example, depending on the model or feature you select, your request may be processed through an external LLM API.</p>
+      <p>The exact providers used by dotcomAI may change over time.</p>
+      <p>We encourage users not to submit passwords, payment-card information, highly confidential business information, government identification numbers, or other sensitive information unless the relevant feature specifically requires it and appropriate safeguards are in place.</p>
+
+      <h2>4. Third-Party Service Providers</h2>
+      <p>dotcomAI may use third-party providers for services such as:</p>
+      <ul>
+        <li>Artificial intelligence and LLM APIs;</li>
+        <li>Cloud hosting;</li>
+        <li>Databases;</li>
+        <li>Authentication;</li>
+        <li>Analytics;</li>
+        <li>Email delivery;</li>
+        <li>Security;</li>
+        <li>Error monitoring;</li>
+        <li>Infrastructure.</li>
+      </ul>
+      <p>These providers may process information as necessary to provide their services.</p>
+      <p>Where appropriate, we seek to use providers and arrangements that provide reasonable safeguards for personal information.</p>
+
+      <h2>5. Legal Basis and Purpose</h2>
+      <p>Where applicable, personal information may be processed based on one or more legally recognized grounds, including:</p>
+      <ul>
+        <li>Your consent;</li>
+        <li>Performance of a service requested by you;</li>
+        <li>Compliance with legal obligations;</li>
+        <li>Legitimate interests where permitted by applicable law;</li>
+        <li>Protection of rights, security, or property.</li>
+      </ul>
+      <p>The applicable legal basis may depend on the nature and purpose of the processing.</p>
+
+      <h2>6. Data Retention</h2>
+      <p>We retain information only for as long as reasonably necessary for the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
+      <p>Retention periods may vary depending on:</p>
+      <ul>
+        <li>The type of information;</li>
+        <li>The purpose for which it was collected;</li>
+        <li>Legal requirements;</li>
+        <li>Security requirements;</li>
+        <li>Account status;</li>
+        <li>Operational requirements.</li>
+      </ul>
+      <p>We may delete or anonymize information when it is no longer reasonably necessary.</p>
+
+      <h2>7. Account Deletion</h2>
+      <p>Where account deletion functionality is available, you may request deletion of your account.</p>
+      <p>You may also contact us to request deletion or appropriate handling of personal information, subject to applicable legal and operational requirements.</p>
+      <p>Certain information may need to be retained where required by law, for security, fraud prevention, dispute resolution, or legitimate operational purposes.</p>
+
+      <h2>8. Data Security</h2>
+      <p>We take reasonable technical and organizational measures to protect personal information against unauthorized access, alteration, disclosure, loss, or destruction.</p>
+      <p>However, no internet service can guarantee absolute security.</p>
+      <p>Users acknowledge that information transmitted through the internet may carry inherent risks.</p>
+
+      <h2>9. International Data Transfers</h2>
+      <p>Because dotcomAI may use cloud infrastructure and third-party AI providers located in different countries, information may potentially be processed outside Sri Lanka.</p>
+      <p>Where applicable, we aim to use appropriate safeguards for cross-border processing in accordance with applicable data-protection requirements.</p>
+
+      <h2>10. Your Privacy Rights</h2>
+      <p>Subject to applicable law, you may have rights relating to your personal information, which may include rights to:</p>
+      <ul>
+        <li>Request access to personal information;</li>
+        <li>Request correction of inaccurate information;</li>
+        <li>Request deletion or erasure where applicable;</li>
+        <li>Object to or restrict certain processing;</li>
+        <li>Withdraw consent where processing is based on consent;</li>
+        <li>Request information about processing;</li>
+        <li>Exercise other rights provided by applicable data-protection law.</li>
+      </ul>
+      <p>The availability and scope of these rights may depend on applicable law and the circumstances of the processing.</p>
+
+      <h2>11. Children's Privacy</h2>
+      <p>dotcomAI is not intended to encourage children to provide personal information without appropriate supervision.</p>
+      <p>Where applicable law requires parental or guardian consent for the collection or processing of children's personal information, we will seek to comply with those requirements.</p>
+      <p>If you believe that a child has provided personal information in circumstances where this was not appropriate, please contact us.</p>
+
+      <h2>12. Third-Party Websites</h2>
+      <p>dotcomAI may contain links or integrations to third-party websites and services.</p>
+      <p>We are not responsible for the privacy practices of independent third parties.</p>
+      <p>We encourage users to review the privacy policies of third-party services before providing information to them.</p>
+
+      <h2>13. Analytics</h2>
+      <p>We may use analytics or similar technologies to understand website usage, performance, and user interactions.</p>
+      <p>The specific analytics providers used by the platform may change over time.</p>
+
+      <h2>14. Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy periodically.</p>
+      <p>When significant changes are made, we may provide appropriate notice through the Service or other reasonable channels.</p>
+      <p>The "Last Updated" date at the beginning of this policy indicates when the policy was most recently revised.</p>
+
+      <h2>15. Contact</h2>
+      <p>If you have a privacy question, request, concern, or complaint regarding the processing of your personal information, please contact dotcomAI through the official contact information provided on the website.</p>
+      <p><strong>Privacy Contact</strong><br>
+      dotcomAI<br>
+      Developed by Manuja Damsara<br>
+      Under DotcomOne / UniPOS<br>
+      Sri Lanka</p>
+    </div>
+  </div>
+</div>
+
+<!-- TERMS OF USE -->
+<div class="modal-backdrop" id="modal-terms" role="dialog" aria-modal="true" aria-labelledby="modal-terms-title">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-terms-title"><i class="fas fa-file-contract"></i> Terms &amp; Conditions</h2>
+      <button class="modal-close" onclick="closeModal('terms')" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h1>Terms &amp; Conditions</h1>
+      <p class="updated">Last Updated: August 29, 2026</p>
+
+      <p>Welcome to dotcomAI.</p>
+      <p>These Terms &amp; Conditions ("Terms") govern your access to and use of the dotcomAI website, applications, software, AI services, features, and related products (collectively, the "Service").</p>
+      <p>The Service is operated under DotcomOne / UniPOS and was developed by Manuja Damsara in Sri Lanka.</p>
+      <p>By accessing or using dotcomAI, you agree to these Terms. If you do not agree with these Terms, you should not use the Service.</p>
+
+      <h2>1. About dotcomAI</h2>
+      <p>dotcomAI is an artificial intelligence platform that provides users with access to AI-powered functionality through integrations with Large Language Models (LLMs), artificial intelligence APIs, software services, and other third-party technologies.</p>
+      <p>Some or all AI functionality may depend on third-party service providers.</p>
+      <p>dotcomAI may add, remove, modify, replace, or discontinue AI models, features, services, or providers at any time.</p>
+
+      <h2>2. Eligibility</h2>
+      <p>You must be legally permitted to use the Service under the laws applicable to you.</p>
+      <p>If you are under the legal age required to enter into contracts in your jurisdiction, you should use the Service only with appropriate parental or guardian involvement where legally required.</p>
+      <p>By using dotcomAI, you represent that the information you provide is accurate to the best of your knowledge.</p>
+
+      <h2>3. Your Account</h2>
+      <p>Certain features may require you to create an account.</p>
+      <p>You are responsible for:</p>
+      <ul>
+        <li>Providing accurate information;</li>
+        <li>Maintaining the security of your account;</li>
+        <li>Keeping your login credentials confidential;</li>
+        <li>All activity occurring through your account;</li>
+        <li>Informing us if you believe your account has been compromised.</li>
+      </ul>
+      <p>You must not share, sell, transfer, or otherwise misuse your account unless expressly permitted by dotcomAI.</p>
+
+      <h2>4. Free Services</h2>
+      <p>dotcomAI may offer certain services free of charge.</p>
+      <p>Free services may be subject to:</p>
+      <ul>
+        <li>Daily or monthly usage limits;</li>
+        <li>Rate limits;</li>
+        <li>Token or request limits;</li>
+        <li>Model availability;</li>
+        <li>Fair-use restrictions;</li>
+        <li>Service availability;</li>
+        <li>Technical limitations.</li>
+      </ul>
+      <p>Free services may be modified, restricted, suspended, or discontinued at any time.</p>
+      <p>We do not guarantee that any particular free feature will remain available indefinitely.</p>
+
+      <h2>5. AI-Generated Content</h2>
+      <p>AI-generated responses are produced using artificial intelligence systems and may contain errors, inaccuracies, outdated information, incomplete information, or inappropriate responses.</p>
+      <p>AI-generated content should not automatically be considered accurate, professional, legal, medical, financial, technical, or otherwise authoritative advice.</p>
+      <p>You are responsible for reviewing and verifying AI-generated content before relying on it.</p>
+      <p>You should not rely solely on dotcomAI for decisions involving significant legal, medical, financial, safety, employment, educational, or business consequences.</p>
+
+      <h2>6. No Guarantee of Accuracy</h2>
+      <p>dotcomAI does not guarantee that AI-generated responses will be:</p>
+      <ul>
+        <li>Accurate;</li>
+        <li>Complete;</li>
+        <li>Current;</li>
+        <li>Reliable;</li>
+        <li>Original;</li>
+        <li>Unbiased;</li>
+        <li>Suitable for a particular purpose;</li>
+        <li>Free from errors.</li>
+      </ul>
+      <p>AI systems can produce incorrect or misleading information.</p>
+      <p>You acknowledge and accept these limitations when using the Service.</p>
+
+      <h2>7. Third-Party AI Providers</h2>
+      <p>dotcomAI may use third-party APIs, AI models, cloud infrastructure, software libraries, hosting providers, analytics services, authentication services, and other technology providers.</p>
+      <p>The availability and performance of dotcomAI may therefore depend on external services.</p>
+      <p>Third-party services may experience:</p>
+      <ul>
+        <li>Downtime;</li>
+        <li>Rate limits;</li>
+        <li>API changes;</li>
+        <li>Pricing changes;</li>
+        <li>Service interruptions;</li>
+        <li>Model changes;</li>
+        <li>Technical failures;</li>
+        <li>Security incidents.</li>
+      </ul>
+      <p>dotcomAI is not responsible for failures caused solely by third-party services beyond our reasonable control.</p>
+
+      <h2>8. Acceptable Use</h2>
+      <p>You agree not to use dotcomAI to:</p>
+      <ul>
+        <li>Violate applicable laws or regulations;</li>
+        <li>Commit fraud or facilitate illegal activity;</li>
+        <li>Attempt unauthorized access to systems or accounts;</li>
+        <li>Interfere with or disrupt the Service;</li>
+        <li>Circumvent usage limits or security mechanisms;</li>
+        <li>Reverse engineer or abuse the platform;</li>
+        <li>Scrape the Service in an abusive manner;</li>
+        <li>Generate or distribute malicious software;</li>
+        <li>Conduct unauthorized security attacks;</li>
+        <li>Impersonate another person or organization;</li>
+        <li>Harass, threaten, or abuse others;</li>
+        <li>Upload content that you do not have the right to use;</li>
+        <li>Abuse third-party AI APIs through the Service;</li>
+        <li>Attempt to overload or damage the infrastructure.</li>
+      </ul>
+      <p>dotcomAI reserves the right to restrict or terminate access where reasonably necessary to protect the platform, its users, third-party providers, or the public.</p>
+
+      <h2>9. User Content</h2>
+      <p>You may provide prompts, text, files, images, or other content to the Service ("User Content").</p>
+      <p>You retain ownership of your User Content to the extent that you legally own it.</p>
+      <p>You grant dotcomAI the limited rights reasonably necessary to process your User Content to provide the requested Service.</p>
+      <p>You are responsible for ensuring that you have the necessary rights and permissions to submit your User Content.</p>
+      <p>Do not submit confidential, sensitive, proprietary, or personal information unless you understand and accept the applicable processing described in our Privacy Policy.</p>
+
+      <h2>10. Intellectual Property</h2>
+      <p>The dotcomAI name, branding, logo, website design, software, user interface, original content, graphics, and other platform materials may be protected by applicable intellectual property laws.</p>
+      <p>Unless otherwise stated, these materials belong to or are licensed to the respective rights holder.</p>
+      <p>You may not reproduce, redistribute, sell, modify, or commercially exploit dotcomAI's proprietary materials without appropriate authorization.</p>
+
+      <h2>11. AI Output and Intellectual Property</h2>
+      <p>AI-generated output may not always be unique and may be similar to content generated for other users.</p>
+      <p>You are responsible for determining whether AI-generated content is suitable for your intended use and whether additional intellectual-property permissions are required.</p>
+      <p>dotcomAI does not guarantee that AI-generated output is free from third-party intellectual-property claims.</p>
+
+      <h2>12. Prohibited Automated Use</h2>
+      <p>Unless expressly authorized, you may not use bots, automated scripts, scraping systems, crawlers, or other automated methods to excessively access or abuse dotcomAI.</p>
+      <p>We may implement technical measures to prevent abuse, excessive requests, unauthorized automation, or circumvention of service limitations.</p>
+
+      <h2>13. Service Availability</h2>
+      <p>We aim to provide a reliable service, but we do not guarantee uninterrupted availability.</p>
+      <p>The Service may occasionally be unavailable because of:</p>
+      <ul>
+        <li>Maintenance;</li>
+        <li>Updates;</li>
+        <li>Server problems;</li>
+        <li>Network failures;</li>
+        <li>Security incidents;</li>
+        <li>Third-party API outages;</li>
+        <li>Infrastructure problems;</li>
+        <li>Force majeure events;</li>
+        <li>Other circumstances beyond our reasonable control.</li>
+      </ul>
+
+      <h2>14. Changes to the Service</h2>
+      <p>We may modify, update, suspend, or discontinue any part of dotcomAI at any time.</p>
+      <p>This may include changing available models, features, limits, interfaces, providers, or functionality.</p>
+
+      <h2>15. Account Suspension or Termination</h2>
+      <p>We may suspend or terminate an account where we reasonably believe that the user:</p>
+      <ul>
+        <li>Violated these Terms;</li>
+        <li>Abused the Service;</li>
+        <li>Attempted to compromise the platform;</li>
+        <li>Circumvented restrictions;</li>
+        <li>Used the Service unlawfully;</li>
+        <li>Created a security or operational risk.</li>
+      </ul>
+      <p>Where reasonably practical, we may provide notice before termination, except where immediate action is necessary.</p>
+
+      <h2>16. Disclaimer</h2>
+      <p>To the maximum extent permitted by applicable law, dotcomAI is provided on an "as is" and "as available" basis.</p>
+      <p>We make no warranties that the Service will always be uninterrupted, secure, accurate, reliable, or error-free.</p>
+      <p>Nothing in these Terms excludes rights or protections that cannot legally be excluded under applicable law.</p>
+
+      <h2>17. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, dotcomAI, DotcomOne, UniPOS, and their respective personnel shall not be liable for indirect, incidental, consequential, special, or unforeseeable losses arising from your use of the Service.</p>
+      <p>This includes, where legally permitted, losses resulting from reliance on AI-generated information, service interruptions, third-party API failures, data loss, or unauthorized access.</p>
+      <p>Nothing in these Terms is intended to exclude liability that cannot legally be excluded under applicable law.</p>
+
+      <h2>18. Third-Party Services and Links</h2>
+      <p>dotcomAI may contain integrations or links to third-party services.</p>
+      <p>Third-party services are governed by their own terms and privacy policies.</p>
+      <p>We are not responsible for the policies, availability, security, content, or practices of independent third-party services.</p>
+
+      <h2>19. Privacy</h2>
+      <p>Your use of dotcomAI is also governed by our Privacy Policy.</p>
+      <p>The Privacy Policy explains how personal information and other data may be collected, used, stored, processed, and protected.</p>
+
+      <h2>20. Security</h2>
+      <p>We take reasonable measures intended to protect the Service and user information.</p>
+      <p>However, no internet-based system can be guaranteed to be completely secure.</p>
+      <p>You acknowledge that transmission of information over the internet carries inherent risks.</p>
+
+      <h2>21. Governing Law</h2>
+      <p>These Terms shall be interpreted in accordance with the laws of the Democratic Socialist Republic of Sri Lanka, subject to any mandatory rights or protections that apply to you under applicable law.</p>
+      <p>Any disputes shall be handled in accordance with applicable Sri Lankan law and the jurisdiction of the competent courts of Sri Lanka, unless otherwise required by applicable law.</p>
+
+      <h2>22. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time.</p>
+      <p>When material changes are made, we may provide reasonable notice through the website, application, email, or other appropriate means.</p>
+      <p>Your continued use of dotcomAI after the updated Terms become effective constitutes acceptance of the revised Terms, to the extent permitted by law.</p>
+
+      <h2>23. Contact</h2>
+      <p>For questions regarding these Terms, please contact the dotcomAI team through the official contact channels provided on the website.</p>
+      <p><strong>Service</strong><br>
+      dotcomAI<br>
+      Made in Sri Lanka.<br>
+      Developed by Manuja Damsara<br>
+      Under DotcomOne / UniPOS</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="modal-backdrop" id="modal-about" role="dialog" aria-modal="true" aria-labelledby="modal-about-title">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-about-title"><i class="fas fa-circle-info"></i> About dotcomAI</h2>
+      <button class="modal-close" onclick="closeModal('about')" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h1>About dotcomAI</h1>
+      <p><strong>AI Made in Sri Lanka. Built for Everyone.</strong></p>
+
+      <p>dotcomAI is a Sri Lankan artificial intelligence platform designed to make modern AI technology more accessible, useful, and affordable for everyone.</p>
+      <p>Built under DotcomOne and UniPOS, dotcomAI provides users with access to AI-powered services through integrations with leading Large Language Model (LLM) and artificial intelligence technologies.</p>
+      <p>Our goal is simple: make powerful AI tools easier for people to access and use.</p>
+      <p>Whether you are a student, developer, business owner, designer, content creator, researcher, professional, or simply someone exploring artificial intelligence, dotcomAI is designed to provide practical AI capabilities through a simple and user-friendly platform.</p>
+
+      <h2>Built in Sri Lanka</h2>
+      <p>dotcomAI is proudly made in Sri Lanka.</p>
+      <p>The platform was created by Manuja Damsara, a Sri Lankan technology professional and the founder/developer behind the platform.</p>
+      <p>Manuja Damsara works across multiple areas of technology, including:</p>
+      <ul>
+        <li>Web Development</li>
+        <li>Software Engineering</li>
+        <li>IT Consulting</li>
+        <li>UI/UX Design</li>
+        <li>Artificial Intelligence</li>
+        <li>Digital Product Development</li>
+        <li>Software Solutions</li>
+      </ul>
+      <p>Through DotcomOne and UniPOS, the vision is to build practical technology products that help individuals and organizations use modern digital technologies more effectively.</p>
+
+      <h2>Our Mission</h2>
+      <p>Our mission is to make artificial intelligence more accessible.</p>
+      <p>AI technology is developing rapidly, but access to powerful AI tools can sometimes be complicated, expensive, or technically difficult.</p>
+      <p>dotcomAI aims to simplify that experience by bringing AI-powered services together through one easy-to-use platform.</p>
+      <p>We believe that access to useful technology should not be limited only to large companies or experienced developers.</p>
+
+      <h2>What is dotcomAI?</h2>
+      <p>dotcomAI is an AI platform that connects users with artificial intelligence services powered by Large Language Models and related AI technologies.</p>
+      <p>Depending on the services available on the platform, users may be able to use AI for tasks such as:</p>
+      <ul>
+        <li>Writing and content generation</li>
+        <li>Question answering</li>
+        <li>Programming and coding assistance</li>
+        <li>Text analysis</li>
+        <li>Summarization</li>
+        <li>Brainstorming</li>
+        <li>Productivity</li>
+        <li>Learning and education</li>
+        <li>Creative work</li>
+        <li>Business tasks</li>
+        <li>Other AI-powered applications</li>
+      </ul>
+      <p>The exact features and models available through dotcomAI may change over time as the platform develops.</p>
+
+      <h2>Free AI Services</h2>
+      <p>dotcomAI may provide certain AI services to users free of charge.</p>
+      <p>Free access may be subject to usage limits, availability restrictions, rate limits, model availability, technical limitations, or other conditions determined by dotcomAI.</p>
+      <p>Our aim is to continue developing useful AI services while keeping the platform accessible to as many people as possible.</p>
+
+      <h2>Our Technology</h2>
+      <p>dotcomAI may use third-party artificial intelligence and Large Language Model APIs to provide certain features.</p>
+      <p>This means that some AI responses may be generated by external AI models or infrastructure operated by third-party technology providers.</p>
+      <p>dotcomAI does not necessarily operate or own every AI model used by the platform.</p>
+      <p>We continuously work to improve the platform, its reliability, user experience, performance, and available AI capabilities.</p>
+
+      <h2>Our Vision</h2>
+      <p>We envision a future where powerful artificial intelligence is accessible to individuals, students, developers, businesses, and organizations regardless of their technical background.</p>
+      <p>dotcomAI is our step toward that future.</p>
+      <p><strong>dotcomAI</strong><br>AI platform made in Sri Lanka.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SAFE USE POLICY -->
+<div class="modal-backdrop" id="modal-safeuse" role="dialog" aria-modal="true" aria-labelledby="modal-safeuse-title">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-safeuse-title"><i class="fas fa-triangle-exclamation"></i> Safe Use Policy</h2>
+      <button class="modal-close" onclick="closeModal('safeuse')" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h1>Safe Use Policy</h1>
+      <p class="updated">Last Updated: August 29, 2026</p>
+
+      <p>dotcomAI is committed to providing a safe, responsible, and lawful AI platform. This Safe Use Policy explains how the Service should be used and what is not allowed.</p>
+
+      <h2>1. Responsible Use</h2>
+      <p>You agree to use dotcomAI responsibly and in accordance with all applicable laws and regulations. You are responsible for the content you submit and the way you use AI-generated outputs.</p>
+
+      <h2>2. Prohibited Uses</h2>
+      <p>You must not use dotcomAI to:</p>
+      <ul>
+        <li>Violate any applicable law or regulation;</li>
+        <li>Generate content that harms, threatens, or harasses others;</li>
+        <li>Create or distribute malware, viruses, or malicious code;</li>
+        <li>Attempt unauthorized access to any system, network, or account;</li>
+        <li>Impersonate any person or organization;</li>
+        <li>Distribute spam, phishing content, or fraudulent material;</li>
+        <li>Generate content that promotes self-harm, violence, or terrorism;</li>
+        <li>Exploit or harm minors in any way;</li>
+        <li>Infringe on the intellectual property or privacy rights of others;</li>
+        <li>Circumvent safety filters, usage limits, or security mechanisms;</li>
+        <li>Use the Service in a way that could damage, disable, or impair it.</li>
+      </ul>
+
+      <h2>3. AI Output Verification</h2>
+      <p>AI-generated outputs may contain inaccuracies, biases, or outdated information. You are responsible for verifying any AI-generated content before relying on it, especially for legal, medical, financial, safety, employment, or educational decisions.</p>
+
+      <h2>4. Sensitive Information</h2>
+      <p>Do not submit confidential, proprietary, or sensitive personal information to the Service unless you understand and accept how it may be processed. Avoid submitting passwords, payment-card data, government identification numbers, or similar sensitive data.</p>
+
+      <h2>5. Enforcement</h2>
+      <p>We reserve the right to restrict, suspend, or terminate access to dotcomAI if we reasonably believe a user has violated this Safe Use Policy or poses a risk to the platform, its users, third-party providers, or the public.</p>
+
+      <h2>6. Reporting Abuse</h2>
+      <p>If you encounter content or behavior that violates this policy, please report it through the official contact channels provided on the website.</p>
+
+      <h2>7. Updates</h2>
+      <p>We may update this Safe Use Policy from time to time. Continued use of dotcomAI after changes become effective constitutes acceptance of the revised policy.</p>
+
+      <h2>Contact</h2>
+      <p><strong>dotcomAI</strong><br>
+      Developed by Manuja Damsara<br>
+      Under DotcomOne / UniPOS<br>
+      Sri Lanka</p>
+    </div>
+  </div>
+</div>
+
+<!-- DATA PROCESSING STATEMENT -->
+<div class="modal-backdrop" id="modal-dataprocessing" role="dialog" aria-modal="true" aria-labelledby="modal-dataprocessing-title">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-dataprocessing-title"><i class="fas fa-database"></i> Data Processing Statement</h2>
+      <button class="modal-close" onclick="closeModal('dataprocessing')" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h1>Data Processing Statement</h1>
+      <p class="updated">Last Updated: August 29, 2026</p>
+
+      <p>This Data Processing Statement explains how dotcomAI processes information submitted through the Service, including prompts, inputs, and technical metadata.</p>
+
+      <h2>1. Data Controller</h2>
+      <p>dotcomAI, operated under DotcomOne / UniPOS and developed by Manuja Damsara, acts as the data controller for personal information processed through the Service, except where otherwise stated.</p>
+
+      <h2>2. Categories of Data Processed</h2>
+      <p>We may process the following categories of data:</p>
+      <ul>
+        <li><strong>Account data:</strong> name, email, username, authentication identifiers;</li>
+        <li><strong>Prompt and input data:</strong> text prompts, files, images, code, uploaded documents;</li>
+        <li><strong>Technical data:</strong> IP address, browser type, device type, OS, access times, error logs;</li>
+        <li><strong>Usage data:</strong> pages accessed, features used, session interactions.</li>
+      </ul>
+
+      <h2>3. Purposes of Processing</h2>
+      <p>Data may be processed to:</p>
+      <ul>
+        <li>Provide and operate the Service;</li>
+        <li>Process AI requests and generate responses;</li>
+        <li>Authenticate users and maintain accounts;</li>
+        <li>Improve platform performance, reliability, and security;</li>
+        <li>Detect and prevent abuse, fraud, and security incidents;</li>
+        <li>Comply with legal obligations.</li>
+      </ul>
+
+      <h2>4. Third-Party AI Providers</h2>
+      <p>When you submit a prompt or input to an AI feature, the content may be transmitted to third-party AI or infrastructure providers required to process your request. These providers may process data solely for the purpose of returning a response.</p>
+      <p>The exact providers used by dotcomAI may change over time.</p>
+
+      <h2>5. Cloud Infrastructure</h2>
+      <p>dotcomAI may use third-party cloud hosting, databases, analytics, authentication, and security services. These providers process data as necessary to deliver their services.</p>
+
+      <h2>6. International Transfers</h2>
+      <p>Because dotcomAI uses cloud infrastructure and third-party providers located in different countries, data may be processed outside Sri Lanka. Where applicable, we aim to use appropriate safeguards for cross-border processing.</p>
+
+      <h2>7. Retention</h2>
+      <p>Data is retained only for as long as reasonably necessary for the purposes described in this Statement, unless a longer retention period is required or permitted by law.</p>
+
+      <h2>8. Security</h2>
+      <p>We take reasonable technical and organizational measures to protect data against unauthorized access, alteration, disclosure, loss, or destruction. However, no internet-based system can guarantee absolute security.</p>
+
+      <h2>9. Your Rights</h2>
+      <p>Subject to applicable law, you may have the right to access, correct, delete, restrict, or object to certain processing of your personal information. You may also withdraw consent where processing is based on consent.</p>
+
+      <h2>10. Contact</h2>
+      <p>For questions regarding data processing, please contact dotcomAI through the official contact information provided on the website.</p>
+      <p><strong>dotcomAI</strong><br>
+      Developed by Manuja Damsara<br>
+      Under DotcomOne / UniPOS<br>
+      Sri Lanka</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCRIPTS ============ -->
+
+<script>
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+
+<script>
+(function() {
+  const tabs = document.querySelectorAll('.code-tab');
+  const panes = {
+    'cmd-npx': document.getElementById('cmd-npx'),
+    'cmd-git': document.getElementById('cmd-git')
+  };
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.target;
+      Object.keys(panes).forEach(id => {
+        panes[id].style.display = (id === target) ? 'block' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+function copyText(text, btn) {
+  if (!navigator.clipboard) return fallbackCopy(text, btn);
+  navigator.clipboard.writeText(text).then(() => flashCopied(btn)).catch(() => fallbackCopy(text, btn));
+}
+
+function copyActive(btn) {
+  const visible = document.querySelector('.code-cmd:not([style*="display:none"]):not([style*="display: none"])');
+  const target = visible || document.getElementById('cmd-npx');
+  const text = target.textContent.replace(/^\$\s*/, '').trim();
+  copyText(text, btn);
+}
+
+function fallbackCopy(text, btn) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); flashCopied(btn); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+function flashCopied(btn) {
+  const original = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-check"></i> Copied';
+  btn.style.color = '#00e676';
+  btn.style.borderColor = 'rgba(0,200,83,0.4)';
+  setTimeout(() => {
+    btn.innerHTML = original;
+    btn.style.color = '';
+    btn.style.borderColor = '';
+  }, 1600);
+}
+</script>
+
+<script>
+const modalMap = {
+  privacy: 'modal-privacy',
+  terms:   'modal-terms',
+  about:   'modal-about',
+  safeuse: 'modal-safeuse',
+  dataprocessing: 'modal-dataprocessing'
+};
+
+function openModal(key) {
+  const id = modalMap[key];
+  if (!id) return;
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('open');
+  document.body.classList.add('no-scroll');
+  setTimeout(() => {
+    const closeBtn = el.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+  }, 60);
+}
+
+function closeModal(key) {
+  const id = modalMap[key];
+  if (!id) return;
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.remove('open');
+  setTimeout(() => {
+    const anyOpen = document.querySelector('.modal-backdrop.open');
+    if (!anyOpen) document.body.classList.remove('no-scroll');
+  }, 250);
+}
+
+document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) {
+      const key = Object.keys(modalMap).find(k => modalMap[k] === backdrop.id);
+      if (key) closeModal(key);
+    }
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const open = document.querySelector('.modal-backdrop.open');
+    if (open) {
+      const key = Object.keys(modalMap).find(k => modalMap[k] === open.id);
+      if (key) closeModal(key);
+    }
+  }
+});
+</script>
+
+<script>
+(function() {
+  const toggle = document.getElementById('helpToggle');
+  const menu = document.getElementById('helpMenu');
+  if (!toggle || !menu) return;
+
+  function setOpen(open) {
+    menu.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!menu.classList.contains('open'));
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
+
+  menu.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => setOpen(false));
+  });
+})();
+</script>
+
+<script>
+function closeMobile() {
+  const m = document.getElementById('mobileMenu');
+  const h = document.getElementById('hamburger');
+  if (m) m.classList.remove('open');
+  if (h) {
+    h.setAttribute('aria-expanded', 'false');
+    h.innerHTML = '<i class="fas fa-bars"></i>';
+  }
+}
+
+(function() {
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  if (!hamburger || !menu) return;
+
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    hamburger.innerHTML = isOpen
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !hamburger.contains(e.target) && menu.classList.contains('open')) {
+      closeMobile();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobile();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1080) closeMobile();
+  });
+})();
+</script>
+
+</body>
+</html>
